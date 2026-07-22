@@ -1,0 +1,47 @@
+{
+  "name": "@modelcontextprotocol/server-wsl",
+  "version": "0.1.0",
+  "description": "MCP server for interacting with Windows Subsystem for Linux (WSL) distributions",
+  "license": "MIT",
+  "author": "Opsecured",
+  "homepage": "https://modelcontextprotocol.io",
+  "bugs": "https://github.com/modelcontextprotocol/servers/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/modelcontextprotocol/servers.git"
+  },
+  "type": "module",
+  "bin": {
+    "mcp-server-wsl": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "bundle": "npm install && npm run build && npm ci --omit=dev --ignore-scripts && npx @anthropic-ai/mcpb pack && npm install"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "shx": "^0.3.4",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "wsl",
+    "windows-subsystem-for-linux",
+    "linux",
+    "windows",
+    "claude"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "manifest_version": "0.3",
+  "name": "wsl",
+  "display_name": "Windows Subsystem for Linux (WSL)",
+  "version": "0.1.0",
+  "description": "Interact with WSL distributions from Claude: run commands, read and write files, inspect distros.",
+  "long_description": "Gives Claude full access to your Windows Subsystem for Linux environment. Run shell commands, read and write files anywhere on the WSL filesystem, list directory contents, and inspect distribution details — all without leaving a Claude conversation.\n\nSupports multiple distributions: each tool accepts an optional `distro` parameter so you can target Ubuntu, Debian, or any other installed distribution by name. When omitted, tools default to your system default distribution.\n\n**Included tools**\n- `list_distros` — see all installed distributions, their running state, and WSL version\n- `run_command` — execute any bash command with configurable timeout\n- `run_privileged_command` — run a command as root (requires explicit user confirmation before Claude calls it)\n- `read_file` — read text files from the WSL filesystem\n- `write_file` — create or overwrite files in the WSL filesystem\n- `list_directory` — list directory contents with permissions, sizes, and timestamps\n- `get_distro_info` — kernel version, OS release details, and current user identity",
+  "author": {
+    "name": "Opsecured"
+  },
+  "license": "MIT",
+  "keywords": ["wsl", "linux", "shell", "terminal", "windows", "filesystem"],
+  "compatibility": {
+    "platforms": ["win32"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"]
+    }
+  },
+  "tools": [
+    {
+      "name": "list_distros",
+      "description": "List all installed WSL distributions, their running state (Running/Stopped), WSL version (1 or 2), and which is the default."
+    },
+    {
+      "name": "run_command",
+      "description": "Execute a bash command inside a WSL distribution. Returns stdout, stderr, and exit code. Supports pipes, scripts, and a configurable timeout. Do not use sudo — use run_privileged_command instead."
+    },
+    {
+      "name": "run_privileged_command",
+      "description": "⚠️ ELEVATED — runs as root via wsl.exe --user root. Claude MUST show the user the exact command and ask for explicit confirmation before calling this tool."
+    },
+    {
+      "name": "read_file",
+      "description": "Read a text file from the WSL filesystem by absolute path. Returns the file content as a UTF-8 string."
+    },
+    {
+      "name": "write_file",
+      "description": "Write or overwrite a file in the WSL filesystem. Creates the file if it does not exist. Parent directory must already exist."
+    },
+    {
+      "name": "list_directory",
+      "description": "List the contents of a WSL directory with file names, types (file/directory/symlink), Unix permissions, sizes, and last-modified timestamps."
+    },
+    {
+      "name": "get_distro_info",
+      "description": "Get detailed information about a WSL distribution: WSL version, running state, Linux kernel version, OS release details, and current user identity."
+    }
+  ]
+}

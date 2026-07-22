@@ -1,0 +1,25 @@
+# Source files — only the compiled dist/ is needed at runtime
+src/
+
+# TypeScript config
+tsconfig.json
+
+# Dev-only test artifacts
+*.test.js
+*.spec.js
+
+# Build output we don't need in the bundle
+dist/*.d.ts
+dist/*.d.ts.map
+
+# Git
+.git/
+.gitignore
+
+# Already-built bundles (don't nest them)
+*.mcpb
+*.dxt
+
+# OS noise
+.DS_Store
+Thumbs.db
