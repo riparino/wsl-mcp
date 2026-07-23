@@ -1,4 +1,5 @@
-[![Release](https://github.com/riparino/wsl-mcp/actions/workflows/release.yml/badge.svg)](https://github.com/riparino/wsl-mcp/actions/workflows/release.yml)
+Local Opsecured Build: [![Release](https://github.com/opsecured/wsl-mcp/actions/workflows/release.yml/badge.svg)](https://github.com/opsecured/wsl-mcp/actions/workflows/release.yml)
+Independent Build: [![Release](https://github.com/riparino/wsl-mcp/actions/workflows/release.yml/badge.svg)](https://github.com/riparino/wsl-mcp/actions/workflows/release.yml)
 
 # @modelcontextprotocol/server-wsl
 
