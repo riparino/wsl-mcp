@@ -1,3 +1,5 @@
+[![Release](https://github.com/riparino/wsl-mcp/actions/workflows/release.yml/badge.svg)](https://github.com/riparino/wsl-mcp/actions/workflows/release.yml)
+
 # @modelcontextprotocol/server-wsl
 
 An [MCP server](https://modelcontextprotocol.io) that gives Claude Desktop full access to your Windows Subsystem for Linux (WSL) environment. Run commands, read and write files, and inspect your distributions — all from a Claude conversation on Windows.
